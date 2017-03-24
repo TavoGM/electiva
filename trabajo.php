@@ -5,6 +5,7 @@
  * code is poetry
  */
 
+$workActive = "active";
 require_once 'header.php';
 $data = $db->getData("content('{key}')", array('key'=>'organization'), true);
 $organization = $data['content'];
@@ -14,21 +15,33 @@ $organization = $data['content'];
 require_once 'side_menu.php';
 ?>
 
-<h3>Nuestro Trabajo</h3>
-  <h4>
-    Organización:<br /><?php echo $organization;  ?>
-  </h4>
+<section>
+<article>
 
-  <h4>
-    Grupos de Trabajo:<br />
+<h1>Nuestro Trabajo</h1>
+
+<h2>Organización:</h2><p><?php echo $organization; ?></p>
+
+<table class="table-line">
+    <tr>
+        <th>Grupo de Trabajo</th>
+        <th>Resumen</th>
+    </tr>
     <?php
     $groups = $db->getData("groups()");
     foreach ($groups as $group)
     {
-      echo "<a href='group.php?id=".$group['id']."'>".$group['name']."</a> - ".$group['summary']."<br />";
+        echo "<tr>";
+        echo "<td><a href='group.php?id=".$group['id']."'>".$group['name']."</a></td>";
+        echo "<td>".$group['summary']."</td>";
+        echo "</tr>";
     }
     ?>
-  </h4>
+
+</table>
+
+</article>
+</section>
 
 <?php
 require_once 'footer.php';

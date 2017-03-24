@@ -5,11 +5,15 @@
  * code is poetry
  */
 
+$indexActive = "active";
 require_once 'header.php';
 ?>
-  <br /><br />
-  <img height="180" width="180" src="images/home.png">
-  <br />
+
+    <div class="row">
+        <h1>Sistema para curso de Electiva</h1>
+        <p>Este website ha sido desarrollado para el curso de electiva del Instituto Tecnólogico de Costa Rica.</p>
+    </div>
+
 <?php
 require_once 'footer.php';
 ?>

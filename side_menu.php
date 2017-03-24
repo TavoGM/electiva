@@ -1,19 +1,15 @@
-<?php
 
-/**
- * Gustavo Granados
- * code is poetry
- */
+<nav>
+    <ul>
+        <li>Organización</li>
+        <?php
+        $db = DB::getInstance();
+        $groups = $db->getData("groups()");
+        foreach ($groups as $group)
+        {
+          echo "<li><a href=\"group.php?id=".$group['id']."\">".$group['name']."</a></li>";
+        }
+        ?>
 
-?>
-
-<br /><br />
-Organización<br />
-<?php
-$db = DB::getInstance();
-$groups = $db->getData("groups()");
-foreach ($groups as $group)
-{
-  echo "<a href='group.php?id=".$group['id']."'>".$group['name']."</a><br />";
-}
-?>
+    </ul>
+</nav>

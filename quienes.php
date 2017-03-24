@@ -5,6 +5,7 @@
  * code is poetry
  */
 
+$usActive = "active";
 require_once 'header.php';
 $data = $db->getData("content('{key}')", array('key'=>'mission'), true);
 $mission = $data['content'];
@@ -16,17 +17,15 @@ $data = $db->getData("content('{key}')", array('key'=>'values'), true);
 $values = $data['content'];
 ?>
 
-<h3>Quienes somos</h3>
-  <p>
-    Misión:<br /><?php echo $mission;  ?>
-  </p>
-  <p>
-    Visión:<br /><?php echo $vision;  ?>
-  </p>
-  <p>
-    Valores:<br /><?php echo $values;  ?>
-  </p>
+    <div class="row">
 
+    <h1>Quienes somos</h1>
+
+    <h2>Misión:</h2><p><?php echo $mission;  ?></p>
+    <h2>Visión:</h2><p><?php echo $vision;  ?></p>
+    <h2>Valores:</h2><p><?php echo $values;  ?></p>
+
+    </div>
 <?php
 require_once 'footer.php';
 ?>

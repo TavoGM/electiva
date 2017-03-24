@@ -42,17 +42,23 @@ class Account
 {
   private $accountId;
   private $user;
+  private $pass;
   private $isAuthenticated = false;
 
   function __construct($user)
   {
     $this->user = $user;
-    $this->accountId = 1;
+
+    $db = DB::getInstance();
+    $data = $db->getData("user('{user}')", array('user'=>$user), true);
+
+    $this->accountId = $data['id'];
+    $this->pass = $data['password'];
   }
 
   public function authenticate($pass)
   {
-    $this->isAuthenticated = $pass == '123';
+    $this->isAuthenticated = $pass == $this->pass;
     return $this->isAuthenticated();
   }
 
