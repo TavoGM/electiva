@@ -126,6 +126,19 @@ function newActivity(id)
     xmlhttp.send(JSON.stringify({f:'newActivity', id:id, name:nameElement.value, date:dateElement.value, location:locationElement.value, content:contentElement.value}));
 }
 
+function deleteActivity(id)
+{
+    resultElement = document.getElementById("resultDelActivity_"+id);
+
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify({f:'deleteActivity', id:id}));
+
+    var element = document.getElementById("activitiesTable_"+id);
+    element.outerHTML = "";
+    delete element;
+}
+
 function validate()
 {
     element = document.getElementById("name");

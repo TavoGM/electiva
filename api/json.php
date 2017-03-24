@@ -51,6 +51,13 @@ if ($f == 'newActivity')
   $userMessage = 'La nueva activity ha sido agregada';
 }
 
+if ($f == 'deleteActivity')
+{
+  $id = $data['id'];
+  $record = $db->getData("deleteActivity('{id}')", array('id'=>$id), true);
+  $userMessage = 'La activity ha sido eliminada';
+}
+
 ?>
 {
 "userMessage": "<?php echo $userMessage; ?>"

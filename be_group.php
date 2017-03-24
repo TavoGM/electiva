@@ -107,7 +107,7 @@ $summary = $group['summary'];
         {
           $date = date_create($activity['date']);
         ?>
-          <table class="table-line" id="activitiesTable">
+          <table class="table-line" id="activitiesTable_<?php echo $activity['id']?>">
               <tr>
                   <th>Nombre: <?php echo $activity['name']; ?></th>
                   <td rowspan="3"><img src="img/holder.png" alt="Beach View" style="width:150px;height:100px;"></td>
@@ -124,6 +124,8 @@ $summary = $group['summary'];
                   </td>
               </tr>
           </table>
+          <button onclick="deleteActivity(<?php echo $activity['id']?>)">Eliminar Actividad</button><div id="resultDelActivity_<?php echo $activity['id']?>"></div>
+          <br />
         <?php
         }
         ?>
